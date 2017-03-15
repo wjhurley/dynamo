@@ -14,30 +14,29 @@
     <img src="DynamoCareersLogo.png" alt="Dynamo Careers Logo" style="display:block;width:36%;margin:auto;" />
     <h2 style="text-align:center;">ROCK STAR SALARY NEGOTIATION CALCULATOR</h2>
     <h4 id="errorMessage"></h4>
-    <form style="width:36%;margin:auto;text-align:center;">
+    <form style="width:18%;margin:auto;">
       <label for="currentSalary">Current Salary</label><br />
-      <input type="text" id="currentSalary" placeholder="$40,000" style="text-align:inherit;background-color:#FFF2CC;" required="required" tabindex="1" onkeypress="return checkInput(this, event);" onpaste="return false;" /><br /><br />
+      <input type="text" id="currentSalary" placeholder="$40,000" style="text-align:inherit;background-color:#FFF2CC;padding:5px;" required="required" tabindex="1" onkeypress="return checkInput(this, event);" onblur="return runCalc();" onpaste="return false;" /><br /><br />
       <label for="newSalary">New Negotiated Salary</label><br />
-      <input type="text" id="newSalary" placeholder="$50,000" style="text-align:inherit;background-color:#C6E0B4;" required="required" tabindex="2" onkeypress="return checkInput(this, event);" onpaste="return false;" /><br /><br />
+      <input type="text" id="newSalary" placeholder="$50,000" style="text-align:inherit;background-color:#C6E0B4;padding:5px;" required="required" tabindex="2" onkeypress="return checkInput(this, event);" onblur="return runCalc();" onpaste="return false;" /><br /><br />
       <label for="diffSalary">Difference</label><br />
-      <input type="text" id="diffSalary" value="$10,000" style="text-align:inherit;" readonly="readonly" tabindex="-1" /><br /><br />
+      <input type="text" id="diffSalary" value="$10,000" style="text-align:inherit;border:none;padding:5px;" readonly="readonly" tabindex="-1" /><br /><br />
       <label for="costOfLiving">Annual Cost of Living (CoL) Increase</label><br />
-      <input type="text" id="costOfLiving" placeholder="3.00%" style="text-align:inherit;" required="required" tabindex="3" onkeypress="return checkInput(this, event);" onpaste="return false;" /><br /><br />
+      <input type="text" id="costOfLiving" placeholder="3.00%" style="text-align:inherit;padding:5px;" required="required" tabindex="3" onkeypress="return checkInput(this, event);" onblur="return runCalc();" onpaste="return false;" /><br /><br />
       <label for="yearsTilRetire">Years remaining before retirement</label><br />
-      <input type="text" id="yearsTilRetire" placeholder="31" style="text-align:inherit;" required="required" tabindex="4" onkeypress="return checkInput(this, event);" onpaste="return false;" /><br /><br />
+      <input type="text" id="yearsTilRetire" placeholder="31" style="text-align:inherit;padding:5px;" required="required" tabindex="4" onkeypress="return checkInput(this, event);" onblur="return runCalc();" onpaste="return false;" /><br /><br />
       <h2>BY TIME OF RETIREMENT:</h2>
-      <label for="currentRetired">Annual Salary at retirement (based on current salary)</label><br />
-      <input type="text" id="currentRetired" value="$97,090" style="text-align:inherit;background-color:#FFF2CC;" readonly="readonly" tabindex="-1" /><br /><br />
-      <label for="newRetired">Annual Salary at retirement (based on new negotiated salary)</label><br />
-      <input type="text" id="newRetired" value="$121,363" style="text-align:inherit;background-color:#C6E0B4;" readonly="readonly" tabindex="-1" /><br /><br />
-      <label for="diffRetired">Difference in Annual Income <span id="retireYears">31</span> Years Later</label><br />
-      <input type="text" id="diffRetired" value="$24,273" style="text-align:inherit;" readonly="readonly" tabindex="-1" />
-      <p style="margin:0 0 8px;"><small><strong>NOTE:</strong> Due to compound effect of CoL Increase</small></p>
+      <label for="currentRetired">Annual Salary at retirement<br /><small>(based on current salary)</small></label><br />
+      <input type="text" id="currentRetired" value="$97,090" style="text-align:inherit;border:none;background-color:#FFF2CC;padding:5px;" readonly="readonly" tabindex="-1" /><br /><br />
+      <label for="newRetired">Annual Salary at retirement<br /><small>(based on new negotiated salary)</small></label><br />
+      <input type="text" id="newRetired" value="$121,363" style="text-align:inherit;border:none;background-color:#C6E0B4;padding:5px;" readonly="readonly" tabindex="-1" /><br /><br />
+      <label for="diffRetired">Difference in Annual Income <span id="retireYears">31</span> Years Later<br /><small>(due to compound effect of CoL Increase)</small></label><br />
+      <input type="text" id="diffRetired" value="$24,273" style="text-align:inherit;border:none;padding:5px;" readonly="readonly" tabindex="-1" /><br /><br />
       <label for="totalNewIncome">Total additional income over remaining career</label><br />
-      <input type="text" id="totalNewIncome" value="$323,108" style="text-align:inherit;background-color:#C6E0B4;" readonly="readonly" tabindex="-1" /><br /><br />
-      <input type="button" onclick="return runCalc();" value="See How Your New Salary Adds Up!" style="padding:10px;" tabindex="5" /><br /><br />
-      <input type="text" value="Option A" style="text-align:inherit;background-color:#FFF2CC;width:81px;" readonly="readonly" tabindex="-1" />
-      <input type="text" value="Option B" style="text-align:inherit;background-color:#C6E0B4;width:81px;" readonly="readonly" tabindex="-1" />
+      <input type="text" id="totalNewIncome" value="$323,108" style="text-align:inherit;border:none;background-color:#C6E0B4;padding:5px;" readonly="readonly" tabindex="-1" /><br /><br />
+      <!-- <input type="button" onclick="return runCalc();" value="See How Your New Salary Adds Up!" style="padding:10px;" tabindex="5" /><br /><br /> -->
+      <input type="text" value="Option A" style="text-align:inherit;border:none;background-color:#FFF2CC;width:77px;padding:5px;" readonly="readonly" tabindex="-1" />
+      <input type="text" value="Option B" style="text-align:inherit;border:none;background-color:#C6E0B4;width:77px;padding:5px;" readonly="readonly" tabindex="-1" />
     </form>
     <script>
       function runCalc() {
@@ -51,10 +50,18 @@
             diffRetired = document.getElementById("diffRetired"),
             retireYears = document.getElementById("retireYears"),
             totalNewIncome = document.getElementById("totalNewIncome"),
-            cleanCurrent = Number(cleanInput(currentSalary.value)),
-            cleanNew = Number(cleanInput(newSalary.value)),
-            cleanCOL = Number(cleanInput(costOfLiving.value)),
-            cleanYears = Number(cleanInput(yearsTilRetire.value)),
+            cleanCurrent = currentSalary.value
+              ? Number(cleanInput(currentSalary.value))
+              : 40000,
+            cleanNew = newSalary.value
+              ? Number(cleanInput(newSalary.value))
+              : 50000,
+            cleanCOL = costOfLiving.value
+              ? Number(cleanInput(costOfLiving.value))
+              : 3,
+            cleanYears = yearsTilRetire.value
+              ? Number(cleanInput(yearsTilRetire.value))
+              : 31,
             salaryDiff = cleanNew - cleanCurrent,
             colPercent = cleanCOL / 100,
             currentSalaryFirstCOL = Number((cleanCurrent / (1 + colPercent) * colPercent).toFixed(2)),
